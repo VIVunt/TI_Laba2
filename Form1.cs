@@ -57,9 +57,29 @@ namespace Laba2
                 MessageBox.Show("Error: P = Q");
                 return false;
             }
+            else if (P <= 1)
+            {
+                MessageBox.Show("Error: p <= 1");
+                return false;
+            }
+            else if (Q <= 1)
+            {
+                MessageBox.Show("Error: q <= 1");
+                return false;
+            }
             else if (P * Q <= 256)
             {
-                MessageBox.Show("n is too small");
+                MessageBox.Show("Error: n is too small");
+                return false;
+            }
+            else if (E <= 1)
+            {
+                MessageBox.Show("Error: e <= 1");
+                return false;
+            }
+            else if (D <= 1)
+            {
+                MessageBox.Show("Error: d <= 1");
                 return false;
             }
             else if (!ModulMath.IsSimple(P))
@@ -74,12 +94,12 @@ namespace Laba2
             }
             else if (ModulMath.Euclid(E, (P - 1) * (Q - 1)) != 1)
             {
-                MessageBox.Show("E and w(n) are not coprime");
+                MessageBox.Show("Error: E and w(n) are not coprime");
                 return false;
             }
             else if (ModulMath.Euclid(D, (P - 1) * (Q - 1)) != 1)
             {
-                MessageBox.Show("D and w(n) are not coprime");
+                MessageBox.Show("Error: D and w(n) are not coprime");
                 return false;
             }
             return true;
